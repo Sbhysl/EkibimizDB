@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EkibimizDB.ViewModels.EmployeeGroupBySalaryViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeCount)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-salary="@item.Salary"> @Html.DisplayFor(modelItem => item.Salary)</a>
+               
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-salary="@item.Salary">  @Html.DisplayFor(modelItem => item.EmployeeCount)</a>
+               
+            </td>
+           
+        </tr>
+}
+    </tbody>
+</table>
+<a asp-action="Details" asp-route-salary="15000">
+    15000 maaş alanların listesi
+</a>

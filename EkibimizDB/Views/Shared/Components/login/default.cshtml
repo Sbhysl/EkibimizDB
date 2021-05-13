@@ -1,0 +1,15 @@
+﻿@model string
+
+<h6>Kullanıcı Bilgileri</h6>
+<form asp-action="SaveuserName" method="post">
+    Kullanıcı Adınız:
+    <input type="text" name="userName" value="@Model" />
+    @if (Model=="")
+    {
+        <input type="submit" value="Bağlan" />
+    }
+    else
+    {
+      <a asp-controller="Home" asp-action="Logout" class="btn btn-primary">Çıkış</a>
+    }
+</form>

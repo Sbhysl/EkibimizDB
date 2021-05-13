@@ -1,0 +1,33 @@
+﻿@model IEnumerable<EkibimizDB.ViewModels.EmployeeGroupByDateJoinedViewModel>
+
+<h3>İşe giriş tarihine göre</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateJoined)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeCount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="DateList" asp-controller="ekibimiz" asp-route-dateJoined="@item.DateJoined.ToString()">@Html.DisplayFor(modelItem => item.DateJoined)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeCount)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DateJoined">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.DateJoined">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.DateJoined">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
